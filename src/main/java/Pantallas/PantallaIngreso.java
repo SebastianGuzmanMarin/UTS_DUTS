@@ -1,5 +1,8 @@
 package Pantallas;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class PantallaIngreso extends javax.swing.JFrame {
@@ -8,8 +11,7 @@ public class PantallaIngreso extends javax.swing.JFrame {
         initComponents();
     }
 
-    
-      public static void main(String args[]) {
+    public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -17,7 +19,7 @@ public class PantallaIngreso extends javax.swing.JFrame {
             }
         });
     }
-      
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -49,6 +51,10 @@ public class PantallaIngreso extends javax.swing.JFrame {
 
         FondoPantalla.setBackground(new java.awt.Color(164, 180, 101));
         FondoPantalla.setForeground(new java.awt.Color(255, 255, 255));
+        FondoPantalla.setMaximumSize(new java.awt.Dimension(650, 500));
+        FondoPantalla.setMinimumSize(new java.awt.Dimension(650, 500));
+        FondoPantalla.setRequestFocusEnabled(false);
+        FondoPantalla.setVerifyInputWhenFocusTarget(false);
         FondoPantalla.setLayout(null);
 
         FondoCuerpo.setBackground(new java.awt.Color(243, 243, 224));
@@ -143,7 +149,7 @@ public class PantallaIngreso extends javax.swing.JFrame {
         CampoIngresarUsuario.getAccessibleContext().setAccessibleName("\n");
 
         FondoPantalla.add(FondoCuerpo);
-        FondoCuerpo.setBounds(70, 170, 520, 300);
+        FondoCuerpo.setBounds(60, 160, 520, 300);
 
         EtiquetaTitulo.setBackground(new java.awt.Color(240, 187, 120));
         EtiquetaTitulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -167,25 +173,18 @@ public class PantallaIngreso extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoContraseñaActionPerformed
-        char[] ContraseñaChar = CampoContraseña.getPassword();  //char lo devuelve en caracteres extraños
-        String Contraseña = new String(ContraseñaChar);
 
-        if (Contraseña.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "️La contraseña no puede estar vacía.");
-        } else {
-            System.out.println("La contraseña es: " + Contraseña);
-        }
     }//GEN-LAST:event_CampoContraseñaActionPerformed
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
@@ -196,13 +195,6 @@ public class PantallaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void CampoIngresarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoIngresarUsuarioActionPerformed
-        String Usuario = CampoIngresarUsuario.getText();
-        
-        if (Usuario.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "️El campo Usuario no puede estar vacío.");
-        } else {
-            System.out.println("el usuario es" + Usuario);
-        }
 
     }//GEN-LAST:event_CampoIngresarUsuarioActionPerformed
 
@@ -211,19 +203,37 @@ public class PantallaIngreso extends javax.swing.JFrame {
         String usuarioIngresado = CampoIngresarUsuario.getText();
         String contraseñaIngresada = new String(CampoContraseña.getPassword());
 
-        if (usuarioIngresado.equals("admin") && contraseñaIngresada.equals("1234")) {
-            
+        boolean accesoConcedido = false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader("usuariosRegistrados.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(",");
+                if (partes.length >= 2) {
+                    String usuarioArchivo = partes[0].trim();
+                    String contraseñaArchivo = partes[1].trim();
+
+                    if (usuarioIngresado.equals(usuarioArchivo) && contraseñaIngresada.equals(contraseñaArchivo)) {
+                        accesoConcedido = true;
+                        break;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            return;
+        }
+
+        if (accesoConcedido) {
             PantallaMenuInicial pmi = new PantallaMenuInicial();
             pmi.setVisible(true);
             this.setVisible(false);
-            
         } else {
-            JOptionPane.showMessageDialog(this, " Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_botonIngresar1ActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField CampoContraseña;

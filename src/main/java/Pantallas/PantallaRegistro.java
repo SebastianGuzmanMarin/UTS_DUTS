@@ -1,15 +1,17 @@
-
 package Pantallas;
 
+import static Pantallas.ValidacionUsuarioExiste.validacionUsuarioExiste;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 public class PantallaRegistro extends javax.swing.JFrame {
 
-    
     public PantallaRegistro() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,11 +31,14 @@ public class PantallaRegistro extends javax.swing.JFrame {
 
         FondoPantalla.setBackground(new java.awt.Color(63, 114, 175));
         FondoPantalla.setForeground(new java.awt.Color(255, 255, 255));
+        FondoPantalla.setMaximumSize(new java.awt.Dimension(650, 500));
+        FondoPantalla.setMinimumSize(new java.awt.Dimension(650, 500));
         FondoPantalla.setLayout(null);
 
         FondoCuerpo.setBackground(new java.awt.Color(219, 226, 239));
         FondoCuerpo.setForeground(new java.awt.Color(0, 0, 0));
 
+        CampoRegistraContraseña.setBackground(new java.awt.Color(255, 255, 255));
         CampoRegistraContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CampoRegistraContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +72,7 @@ public class PantallaRegistro extends javax.swing.JFrame {
         EtiquetaRegistraContraseña.setAlignmentY(0.0F);
         EtiquetaRegistraContraseña.setOpaque(true);
 
+        CampoRegistraNombreUsuario.setBackground(new java.awt.Color(255, 255, 255));
         CampoRegistraNombreUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CampoRegistraNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +80,8 @@ public class PantallaRegistro extends javax.swing.JFrame {
             }
         });
 
+        CampoTerminosCondiciones.setBackground(new java.awt.Color(255, 255, 255));
+        CampoTerminosCondiciones.setForeground(new java.awt.Color(0, 0, 0));
         CampoTerminosCondiciones.setText("Aceptas Terminos  y condiciones");
         CampoTerminosCondiciones.setOpaque(true);
         CampoTerminosCondiciones.addActionListener(new java.awt.event.ActionListener() {
@@ -156,39 +164,64 @@ public class PantallaRegistro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoRegistraContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRegistraContraseñaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_CampoRegistraContraseñaActionPerformed
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
-        // TODO add your handling code here:
+        String usuarioIngresado = CampoRegistraNombreUsuario.getText();
+        String contraseñaIngresada = new String(CampoRegistraContraseña.getPassword());
+
+        if (usuarioIngresado.isEmpty() || contraseñaIngresada.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Los datos no pueden estar vacios.");
+        } else if (!CampoTerminosCondiciones.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Debe aceptar los Terminos y Condiciones para registrarse.");
+        } else if (validacionUsuarioExiste(usuarioIngresado)) {
+            JOptionPane.showMessageDialog(this, "El usuario ya esta registrado");
+        } else {
+            try {
+                FileWriter fw = new FileWriter("usuariosRegistrados.txt", true); // 'true' para agregar al archivo
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write(usuarioIngresado + "," + contraseñaIngresada);
+                bw.newLine();
+                bw.close();
+                JOptionPane.showMessageDialog(this, "Usuario y contraseña registrados con éxito.");
+
+                CampoRegistraNombreUsuario.setText("");
+                CampoRegistraContraseña.setText("");
+                CampoTerminosCondiciones.setSelected(false);
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Error al guardar el usuario: " + e.getMessage());
+            }
+        }
+
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void CampoRegistraNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRegistraNombreUsuarioActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_CampoRegistraNombreUsuarioActionPerformed
 
     private void CampoTerminosCondicionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoTerminosCondicionesActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_CampoTerminosCondicionesActionPerformed
 
     private void botonVolverPantallaIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverPantallaIngresoActionPerformed
-        PantallaIngreso pi = new PantallaIngreso ();
+        PantallaIngreso pi = new PantallaIngreso();
         pi.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonVolverPantallaIngresoActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField CampoRegistraContraseña;
