@@ -1,4 +1,4 @@
-package poo.work_plataformadigitalfinancierauts;
+package main;
 import ModelosDUTS.DUTS;
 import ModelosEventos.Evento;
 import ModelosUsuario.Usuario;

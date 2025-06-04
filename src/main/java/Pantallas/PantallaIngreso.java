@@ -24,74 +24,59 @@ public class PantallaIngreso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         FondoPantalla = new javax.swing.JPanel();
         FondoCuerpo = new javax.swing.JPanel();
-        CampoContraseña = new javax.swing.JPasswordField();
-        EtiquetaIngreseContraseña = new javax.swing.JLabel();
-        botonIngresar = new javax.swing.JButton();
-        EtiquetaIngreseContraseña1 = new javax.swing.JLabel();
-        CampoIngresarUsuario = new javax.swing.JTextField();
-        botonIngresar1 = new javax.swing.JButton();
-        EtiquetaTitulo = new javax.swing.JLabel();
         EtiquetaTitulo1 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        EtiquetaTitulo = new javax.swing.JLabel();
+        EtiquetaIngreseContraseña = new javax.swing.JLabel();
+        CampoIngresarUsuario = new javax.swing.JTextField();
+        EtiquetaIngreseContraseña1 = new javax.swing.JLabel();
+        CampoContraseña = new javax.swing.JPasswordField();
+        botonIngresar1 = new javax.swing.JButton();
+        botonIngresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 700));
 
         FondoPantalla.setBackground(new java.awt.Color(164, 180, 101));
         FondoPantalla.setForeground(new java.awt.Color(255, 255, 255));
-        FondoPantalla.setMaximumSize(new java.awt.Dimension(650, 500));
-        FondoPantalla.setMinimumSize(new java.awt.Dimension(650, 500));
+        FondoPantalla.setMaximumSize(new java.awt.Dimension(800, 700));
+        FondoPantalla.setMinimumSize(new java.awt.Dimension(800, 700));
         FondoPantalla.setRequestFocusEnabled(false);
         FondoPantalla.setVerifyInputWhenFocusTarget(false);
-        FondoPantalla.setLayout(null);
+        FondoPantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FondoCuerpo.setBackground(new java.awt.Color(243, 243, 224));
+        FondoCuerpo.setPreferredSize(new java.awt.Dimension(440, 710));
 
-        CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
-        CampoContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CampoContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoContraseñaActionPerformed(evt);
-            }
-        });
+        EtiquetaTitulo1.setBackground(new java.awt.Color(240, 187, 120));
+        EtiquetaTitulo1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        EtiquetaTitulo1.setForeground(new java.awt.Color(13, 27, 42));
+        EtiquetaTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EtiquetaTitulo1.setText("BIENVENIDO");
+        EtiquetaTitulo1.setToolTipText("");
 
-        EtiquetaIngreseContraseña.setBackground(new java.awt.Color(164, 180, 101));
-        EtiquetaIngreseContraseña.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        EtiquetaTitulo.setBackground(new java.awt.Color(240, 187, 120));
+        EtiquetaTitulo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        EtiquetaTitulo.setForeground(new java.awt.Color(13, 27, 42));
+        EtiquetaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EtiquetaTitulo.setText("Plataforma Financiera UTS");
+        EtiquetaTitulo.setToolTipText("");
+
+        EtiquetaIngreseContraseña.setBackground(new java.awt.Color(60, 61, 55));
+        EtiquetaIngreseContraseña.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        EtiquetaIngreseContraseña.setForeground(new java.awt.Color(255, 255, 255));
         EtiquetaIngreseContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EtiquetaIngreseContraseña.setText("Ingresa tu usuario");
         EtiquetaIngreseContraseña.setAlignmentY(0.0F);
         EtiquetaIngreseContraseña.setOpaque(true);
 
-        botonIngresar.setBackground(new java.awt.Color(221, 168, 83));
-        botonIngresar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        botonIngresar.setText("Registrarse");
-        botonIngresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        botonIngresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonIngresarActionPerformed(evt);
-            }
-        });
-
-        EtiquetaIngreseContraseña1.setBackground(new java.awt.Color(164, 180, 101));
-        EtiquetaIngreseContraseña1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        EtiquetaIngreseContraseña1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EtiquetaIngreseContraseña1.setText("Ingresa tu contraseña");
-        EtiquetaIngreseContraseña1.setAlignmentY(0.0F);
-        EtiquetaIngreseContraseña1.setOpaque(true);
-
         CampoIngresarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        CampoIngresarUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         CampoIngresarUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CampoIngresarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,8 +84,26 @@ public class PantallaIngreso extends javax.swing.JFrame {
             }
         });
 
-        botonIngresar1.setBackground(new java.awt.Color(221, 168, 83));
-        botonIngresar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        EtiquetaIngreseContraseña1.setBackground(new java.awt.Color(60, 61, 55));
+        EtiquetaIngreseContraseña1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        EtiquetaIngreseContraseña1.setForeground(new java.awt.Color(255, 255, 255));
+        EtiquetaIngreseContraseña1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EtiquetaIngreseContraseña1.setText("Ingresa tu contraseña");
+        EtiquetaIngreseContraseña1.setAlignmentY(0.0F);
+        EtiquetaIngreseContraseña1.setOpaque(true);
+
+        CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        CampoContraseña.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        CampoContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CampoContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoContraseñaActionPerformed(evt);
+            }
+        });
+
+        botonIngresar1.setBackground(new java.awt.Color(65, 90, 119));
+        botonIngresar1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonIngresar1.setForeground(new java.awt.Color(255, 255, 255));
         botonIngresar1.setText("Ingresar");
         botonIngresar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         botonIngresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,75 +112,80 @@ public class PantallaIngreso extends javax.swing.JFrame {
             }
         });
 
+        botonIngresar.setBackground(new java.awt.Color(65, 90, 119));
+        botonIngresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonIngresar.setForeground(new java.awt.Color(255, 255, 255));
+        botonIngresar.setText("Registrarse");
+        botonIngresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FondoCuerpoLayout = new javax.swing.GroupLayout(FondoCuerpo);
         FondoCuerpo.setLayout(FondoCuerpoLayout);
         FondoCuerpoLayout.setHorizontalGroup(
             FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoCuerpoLayout.createSequentialGroup()
+                .addComponent(EtiquetaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
+            .addComponent(EtiquetaTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(FondoCuerpoLayout.createSequentialGroup()
                 .addGroup(FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoCuerpoLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
+                        .addGap(45, 45, 45)
                         .addGroup(FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EtiquetaIngreseContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonIngresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CampoIngresarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EtiquetaIngreseContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(CampoIngresarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EtiquetaIngreseContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(FondoCuerpoLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(botonIngresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(FondoCuerpoLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
+                        .addGap(84, 84, 84)
                         .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         FondoCuerpoLayout.setVerticalGroup(
             FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoCuerpoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(FondoCuerpoLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(EtiquetaTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EtiquetaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(EtiquetaIngreseContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoIngresarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(EtiquetaIngreseContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(botonIngresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         CampoIngresarUsuario.getAccessibleContext().setAccessibleName("\n");
 
-        FondoPantalla.add(FondoCuerpo);
-        FondoCuerpo.setBounds(60, 160, 520, 300);
+        FondoPantalla.add(FondoCuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 340, 700));
 
-        EtiquetaTitulo.setBackground(new java.awt.Color(240, 187, 120));
-        EtiquetaTitulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        EtiquetaTitulo.setForeground(new java.awt.Color(245, 236, 213));
-        EtiquetaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EtiquetaTitulo.setText("Plataforma Financiera UTS");
-        EtiquetaTitulo.setToolTipText("");
-        FondoPantalla.add(EtiquetaTitulo);
-        EtiquetaTitulo.setBounds(120, 110, 410, 30);
-
-        EtiquetaTitulo1.setBackground(new java.awt.Color(240, 187, 120));
-        EtiquetaTitulo1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        EtiquetaTitulo1.setForeground(new java.awt.Color(243, 243, 224));
-        EtiquetaTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EtiquetaTitulo1.setText("BIENVENIDO");
-        EtiquetaTitulo1.setToolTipText("");
-        FondoPantalla.add(EtiquetaTitulo1);
-        EtiquetaTitulo1.setBounds(120, 20, 430, 80);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pantallas/Pictures/Picture1.jpg"))); // NOI18N
+        FondoPantalla.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -225,7 +233,7 @@ public class PantallaIngreso extends javax.swing.JFrame {
         }
 
         if (accesoConcedido) {
-            PantallaMenuInicial pmi = new PantallaMenuInicial();
+            PantallaMenuInicial pmi = new PantallaMenuInicial(usuarioIngresado);// se pasa usuarioIngresado como parametro 
             pmi.setVisible(true);
             this.setVisible(false);
         } else {
@@ -246,6 +254,6 @@ public class PantallaIngreso extends javax.swing.JFrame {
     private javax.swing.JPanel FondoPantalla;
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonIngresar1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

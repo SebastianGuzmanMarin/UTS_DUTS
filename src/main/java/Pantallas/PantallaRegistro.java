@@ -22,23 +22,33 @@ public class PantallaRegistro extends javax.swing.JFrame {
         EtiquetaRegistroNombreUsuario = new javax.swing.JLabel();
         botonIngresar = new javax.swing.JButton();
         EtiquetaRegistraContraseña = new javax.swing.JLabel();
-        CampoRegistraNombreUsuario = new javax.swing.JTextField();
         CampoTerminosCondiciones = new javax.swing.JCheckBox();
+        CampoRegistraNombreUsuario = new javax.swing.JTextField();
         botonVolverPantallaIngreso = new javax.swing.JButton();
         EtiquetaTitulo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 700));
 
         FondoPantalla.setBackground(new java.awt.Color(63, 114, 175));
         FondoPantalla.setForeground(new java.awt.Color(255, 255, 255));
-        FondoPantalla.setMaximumSize(new java.awt.Dimension(650, 500));
-        FondoPantalla.setMinimumSize(new java.awt.Dimension(650, 500));
-        FondoPantalla.setLayout(null);
+        FondoPantalla.setMaximumSize(new java.awt.Dimension(800, 700));
+        FondoPantalla.setMinimumSize(new java.awt.Dimension(800, 700));
+        FondoPantalla.setPreferredSize(new java.awt.Dimension(800, 700));
+        FondoPantalla.setRequestFocusEnabled(false);
+        FondoPantalla.setVerifyInputWhenFocusTarget(false);
+        FondoPantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FondoCuerpo.setBackground(new java.awt.Color(219, 226, 239));
         FondoCuerpo.setForeground(new java.awt.Color(0, 0, 0));
+        FondoCuerpo.setPreferredSize(new java.awt.Dimension(440, 710));
 
         CampoRegistraContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        CampoRegistraContraseña.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         CampoRegistraContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CampoRegistraContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,16 +56,20 @@ public class PantallaRegistro extends javax.swing.JFrame {
             }
         });
 
-        EtiquetaRegistroNombreUsuario.setBackground(new java.awt.Color(17, 45, 78));
-        EtiquetaRegistroNombreUsuario.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        EtiquetaRegistroNombreUsuario.setBackground(new java.awt.Color(60, 61, 55));
+        EtiquetaRegistroNombreUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         EtiquetaRegistroNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
         EtiquetaRegistroNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EtiquetaRegistroNombreUsuario.setText("Ingresa tu Nombre de usuario");
         EtiquetaRegistroNombreUsuario.setAlignmentY(0.0F);
+        EtiquetaRegistroNombreUsuario.setMaximumSize(new java.awt.Dimension(128, 17));
+        EtiquetaRegistroNombreUsuario.setMinimumSize(new java.awt.Dimension(128, 17));
         EtiquetaRegistroNombreUsuario.setOpaque(true);
+        EtiquetaRegistroNombreUsuario.setPreferredSize(new java.awt.Dimension(128, 17));
 
-        botonIngresar.setBackground(new java.awt.Color(221, 168, 83));
-        botonIngresar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        botonIngresar.setBackground(new java.awt.Color(65, 90, 119));
+        botonIngresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonIngresar.setForeground(new java.awt.Color(255, 255, 255));
         botonIngresar.setText("Registrarse");
         botonIngresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         botonIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,23 +78,16 @@ public class PantallaRegistro extends javax.swing.JFrame {
             }
         });
 
-        EtiquetaRegistraContraseña.setBackground(new java.awt.Color(17, 45, 78));
-        EtiquetaRegistraContraseña.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        EtiquetaRegistraContraseña.setBackground(new java.awt.Color(60, 61, 55));
+        EtiquetaRegistraContraseña.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         EtiquetaRegistraContraseña.setForeground(new java.awt.Color(255, 255, 255));
         EtiquetaRegistraContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EtiquetaRegistraContraseña.setText("Ingresa tu contraseña");
         EtiquetaRegistraContraseña.setAlignmentY(0.0F);
         EtiquetaRegistraContraseña.setOpaque(true);
 
-        CampoRegistraNombreUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        CampoRegistraNombreUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CampoRegistraNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoRegistraNombreUsuarioActionPerformed(evt);
-            }
-        });
-
         CampoTerminosCondiciones.setBackground(new java.awt.Color(255, 255, 255));
+        CampoTerminosCondiciones.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         CampoTerminosCondiciones.setForeground(new java.awt.Color(0, 0, 0));
         CampoTerminosCondiciones.setText("Aceptas Terminos  y condiciones");
         CampoTerminosCondiciones.setOpaque(true);
@@ -90,8 +97,18 @@ public class PantallaRegistro extends javax.swing.JFrame {
             }
         });
 
-        botonVolverPantallaIngreso.setBackground(new java.awt.Color(221, 184, 98));
-        botonVolverPantallaIngreso.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        CampoRegistraNombreUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        CampoRegistraNombreUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        CampoRegistraNombreUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CampoRegistraNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoRegistraNombreUsuarioActionPerformed(evt);
+            }
+        });
+
+        botonVolverPantallaIngreso.setBackground(new java.awt.Color(65, 90, 119));
+        botonVolverPantallaIngreso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonVolverPantallaIngreso.setForeground(new java.awt.Color(255, 255, 255));
         botonVolverPantallaIngreso.setText("Volver");
         botonVolverPantallaIngreso.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         botonVolverPantallaIngreso.addActionListener(new java.awt.event.ActionListener() {
@@ -100,75 +117,83 @@ public class PantallaRegistro extends javax.swing.JFrame {
             }
         });
 
+        EtiquetaTitulo.setBackground(new java.awt.Color(240, 187, 120));
+        EtiquetaTitulo.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        EtiquetaTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        EtiquetaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EtiquetaTitulo.setText("REGISTRO");
+        EtiquetaTitulo.setToolTipText("");
+        EtiquetaTitulo.setMaximumSize(new java.awt.Dimension(222, 42));
+        EtiquetaTitulo.setMinimumSize(new java.awt.Dimension(222, 42));
+        EtiquetaTitulo.setPreferredSize(new java.awt.Dimension(222, 42));
+
         javax.swing.GroupLayout FondoCuerpoLayout = new javax.swing.GroupLayout(FondoCuerpo);
         FondoCuerpo.setLayout(FondoCuerpoLayout);
         FondoCuerpoLayout.setHorizontalGroup(
             FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(EtiquetaTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoCuerpoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(CampoTerminosCondiciones)
-                .addGap(160, 160, 160))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonVolverPantallaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
             .addGroup(FondoCuerpoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoTerminosCondiciones))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoCuerpoLayout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoCuerpoLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addGroup(FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EtiquetaRegistroNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
-                            .addComponent(EtiquetaRegistraContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CampoRegistraNombreUsuario)
-                            .addComponent(CampoRegistraContraseña)))
-                    .addGroup(FondoCuerpoLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addComponent(CampoRegistraNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoCuerpoLayout.createSequentialGroup()
                         .addGroup(FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FondoCuerpoLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(botonVolverPantallaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                            .addComponent(CampoRegistraContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EtiquetaRegistraContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EtiquetaRegistroNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51))))
         );
         FondoCuerpoLayout.setVerticalGroup(
             FondoCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoCuerpoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EtiquetaRegistroNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(EtiquetaTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(EtiquetaRegistroNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoRegistraNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(CampoRegistraNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(EtiquetaRegistraContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoRegistraContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CampoRegistraContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(CampoTerminosCondiciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonVolverPantallaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addComponent(botonVolverPantallaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
         );
 
         CampoRegistraNombreUsuario.getAccessibleContext().setAccessibleName("\n");
 
-        FondoPantalla.add(FondoCuerpo);
-        FondoCuerpo.setBounds(70, 150, 520, 320);
+        FondoPantalla.add(FondoCuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 700));
 
-        EtiquetaTitulo.setBackground(new java.awt.Color(240, 187, 120));
-        EtiquetaTitulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
-        EtiquetaTitulo.setForeground(new java.awt.Color(243, 243, 224));
-        EtiquetaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EtiquetaTitulo.setText("Registro");
-        EtiquetaTitulo.setToolTipText("");
-        FondoPantalla.add(EtiquetaTitulo);
-        EtiquetaTitulo.setBounds(120, 20, 430, 80);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pantallas/Fachada-UTS (1).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        FondoPantalla.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 430, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(FondoPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -234,5 +259,6 @@ public class PantallaRegistro extends javax.swing.JFrame {
     private javax.swing.JPanel FondoPantalla;
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonVolverPantallaIngreso;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
