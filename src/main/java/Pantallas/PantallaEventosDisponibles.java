@@ -15,25 +15,27 @@ import javax.swing.JOptionPane;
 
 public class PantallaEventosDisponibles extends javax.swing.JFrame {
     private String usuarioIngresado;
-    private JButton[] botonesEvento;
+    
+    //inicializacion de variables
+    private JButton[] botonesEvento; //arreglo de botones
     private Color colorOriginal;
-    private JButton botonSeleccionado = null;
+    private JButton botonSeleccionado = null; //ultimo boton seleccionado
 
     public PantallaEventosDisponibles(String usuarioIngresado) {
-        initComponents();
-        botonesEvento = new JButton[]{Evento1, Evento2, Evento3, Evento4, Evento5, Evento6, Evento7};
-        colorOriginal = Evento1.getBackground();
-        this.usuarioIngresado = usuarioIngresado;
+        initComponents();  // inicializa todos los componentes gráficos de la ventana
+        botonesEvento = new JButton[]{Evento1, Evento2, Evento3, Evento4, Evento5, Evento6, Evento7}; // asigna el arreglo de botones
+        colorOriginal = Evento1.getBackground();  //guarda el color del boton evento 1
+        this.usuarioIngresado = usuarioIngresado; // el usuarioingresado que viene como parametro lo asigan aa la variable local
     }
     
-    
+    // revisar a futuro algo complejo
     private void seleccionarBoton(JButton boton) {
-    for (JButton b : botonesEvento) {
+    for (JButton b : botonesEvento) { // ciclo FOR  // b representa todos los botones, es decir lo recorrera, boton es es el parametro o boton seleccionado
         if (b == boton) {
-            b.setBackground(Color.GRAY); // Seleccionado
-            botonSeleccionado = b;       // 🔸 Guardar selección
+            b.setBackground(Color.GRAY); 
+            botonSeleccionado = b;      
         } else {
-            b.setBackground(new Color(60, 61, 55)); // Restaurar color
+            b.setBackground(new Color(60, 61, 55));
         }
     }
 }
@@ -333,7 +335,7 @@ public class PantallaEventosDisponibles extends javax.swing.JFrame {
         } else {
             // Sumamos DUTS por asistir al evento
             int aumentoDuts = 10000;  // cantidad que gana el usuario al asistir
-            boolean pudoActualizar = Pantallas.Duts.actualizarDuts(usuarioIngresado, aumentoDuts);
+            boolean pudoActualizar = Modelos.Duts.actualizarDuts(usuarioIngresado, aumentoDuts);
 
             if (!pudoActualizar) {
                 JOptionPane.showMessageDialog(this,
@@ -345,10 +347,8 @@ public class PantallaEventosDisponibles extends javax.swing.JFrame {
 
             // Registrar evento y guardar en archivo
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, true))) {
-                java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                String fechaHora = dtf.format(java.time.LocalDateTime.now());
 
-                String lineaRegistro = usuarioIngresado + " - " + nombreEvento + " - Registrado el: " + fechaHora;
+                String lineaRegistro = usuarioIngresado + " - " + nombreEvento;
                 writer.write(lineaRegistro);
                 writer.newLine();
 
@@ -413,7 +413,7 @@ public class PantallaEventosDisponibles extends javax.swing.JFrame {
 
                 // Restar 100 DUTS al cancelar asistencia
                 int restaDuts = -10000;
-                boolean pudoActualizar = Pantallas.Duts.actualizarDuts(usuarioIngresado, restaDuts);
+                boolean pudoActualizar = Modelos.Duts.actualizarDuts(usuarioIngresado, restaDuts);
 
                 if (!pudoActualizar) {
                     JOptionPane.showMessageDialog(this,

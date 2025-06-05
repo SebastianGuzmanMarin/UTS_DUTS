@@ -1,25 +1,24 @@
 
 package Pantallas;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.swing.JOptionPane;
+import Modelos.Duts;
+import Modelos.EnviarDuts;
+
 
 
 public class PantallaMenuInicial extends javax.swing.JFrame {
 
     private String usuarioIngresado;
 
-    public PantallaMenuInicial(String usuarioIngresado) {  //constructor recibe usuario de pantalla de ingreso como parametro
+    public PantallaMenuInicial(String usuarioIngresado) {  //constructor recibe usuarioIngresado de la pantalla de ingreso como parametro
         initComponents();
-        this.usuarioIngresado = usuarioIngresado;
+        this.usuarioIngresado = usuarioIngresado; // asigna el parametro a la variable local Usuarioingresado
         EtiquetaMenu.setText("Bienvenido " + usuarioIngresado + " a la plataforma financiera UTS");
         actualizarDuts();
         
         }
     
+    //metodo para actualizar los Duts de la pantalla
         public void actualizarDuts(){
         int duts = Duts.InformacionDuts(usuarioIngresado); 
         ContadorDUTSactuales.setText(String.valueOf(duts));
@@ -49,7 +48,6 @@ public class PantallaMenuInicial extends javax.swing.JFrame {
         IconoMoneda = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 700));
 
@@ -191,13 +189,13 @@ public class PantallaMenuInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMiPerfilActionPerformed
-        PantallaMiPerfil pmp = new PantallaMiPerfil(usuarioIngresado); // se pasa usuarioIngresado como parametro 
+        PantallaMiPerfil pmp = new PantallaMiPerfil(usuarioIngresado); // Se envia valor de usuarioIngresado como parametro a la ventana mi perfil
         pmp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonMiPerfilActionPerformed
 
     private void BotonVerEventosDIsponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerEventosDIsponiblesActionPerformed
-        PantallaEventosDisponibles ped = new PantallaEventosDisponibles(usuarioIngresado); // se pasa usuarioIngresado como parametro 
+        PantallaEventosDisponibles ped = new PantallaEventosDisponibles(usuarioIngresado); // Se envia valor de usuarioIngresado como parametro a la ventana eventos
         ped.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonVerEventosDIsponiblesActionPerformed
@@ -209,79 +207,8 @@ public class PantallaMenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void BotonEnviarDUTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEnviarDUTSActionPerformed
-        String destinatario = JOptionPane.showInputDialog(this, "¿A quién deseas enviar los DUTS?");
-        if (destinatario == null || destinatario.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Destinatario inválido.");
-            return;
-        }
-
-        String cantidadStr = JOptionPane.showInputDialog(this, "¿Cuántos DUTS deseas enviar?");
-        if (cantidadStr == null || cantidadStr.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Cantidad inválida.");
-            return;
-        }
-
-        try {
-            int cantidadEnviar = Integer.parseInt(cantidadStr);
-
-            java.util.List<String> nuevasLineas = new java.util.ArrayList<>();
-            boolean emisorEncontrado = false;
-            boolean receptorEncontrado = false;
-
-            try (BufferedReader br = new BufferedReader(new FileReader("UsuariosDuts.txt"))) {
-                String linea;
-
-                while ((linea = br.readLine()) != null) {
-                    String[] partes = linea.split(",");
-                    if (partes.length == 2) {
-                        String nombre = partes[0].trim();
-                        int duts = Integer.parseInt(partes[1].trim());
-
-                        if (nombre.equalsIgnoreCase(usuarioIngresado)) {
-                            if (duts < cantidadEnviar) {
-                                JOptionPane.showMessageDialog(this, "No tienes suficientes DUTS para enviar.");
-                                return;
-                            }
-                            duts -= cantidadEnviar;
-                            emisorEncontrado = true;
-                        }
-
-                        if (nombre.equalsIgnoreCase(destinatario)) {
-                            duts += cantidadEnviar;
-                            receptorEncontrado = true;
-                        }
-
-                        nuevasLineas.add(nombre + "," + duts);
-                    }
-                }
-            }
-
-            // Si el destinatario no existe, lo agregamos al final
-            if (!receptorEncontrado) {
-                nuevasLineas.add(destinatario + "," + cantidadEnviar);
-                JOptionPane.showMessageDialog(this, "El destinatario no existía, fue creado y se le enviaron los DUTS.");
-            }
-
-            if (!emisorEncontrado) {
-                JOptionPane.showMessageDialog(this, "Tu usuario no fue encontrado en el archivo.");
-                return;
-            }
-
-            try (PrintWriter pw = new PrintWriter("UsuariosDuts.txt")) {
-                for (String linea : nuevasLineas) {
-                    pw.println(linea);
-                }
-            }
-
-            JOptionPane.showMessageDialog(this, "DUTS enviados con éxito.");
-            actualizarDuts();
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "La cantidad debe ser un número válido.");
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al acceder al archivo.");
-            e.printStackTrace();
-        }
+        EnviarDuts.enviarDuts(usuarioIngresado);
+        actualizarDuts();
     }//GEN-LAST:event_BotonEnviarDUTSActionPerformed
 
 

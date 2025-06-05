@@ -1,55 +1,26 @@
 package Pantallas;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import Modelos.MostrarDutsTiempo;
+import javax.swing.JOptionPane;
 
 public class PantallaMiPerfil extends javax.swing.JFrame {
 
     private String usuarioIngresado;
 
-    public PantallaMiPerfil(String usuarioIngresado) {  //constructor recibe usuario de pantalla de ingreso como parametro
+    // Constructor principal con usuario
+    public PantallaMiPerfil(String usuarioIngresado) {
         initComponents();
         this.usuarioIngresado = usuarioIngresado;
         EtiquetaSaludoMiPefil.setText("¡Hola! " + usuarioIngresado);
 
-        try (BufferedReader br = new BufferedReader(new FileReader("UsuariosDuts.txt"))) {
-            String linea;
-            boolean encontrado = false;
-
-            while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(",");
-                if (partes.length == 2) {
-                    String nombre = partes[0].trim();
-                    String dutStr = partes[1].trim();
-
-                    // Comparar sin importar mayúsculas/minúsculas
-                    if (nombre.equalsIgnoreCase(usuarioIngresado)) {
-                        int dutTotal = Integer.parseInt(dutStr);
-                        int años = dutTotal / 365;
-                        int semestres = dutTotal / 182;
-                        int meses = dutTotal / 30;
-                        int semanas = dutTotal / 7;
-
-                        ContadorDUTSaño.setText(String.valueOf(años));
-                        ContadorDUTSsemestre.setText(String.valueOf(semestres));
-                        ContadorDUTSmes.setText(String.valueOf(meses));
-                        ContadorDUTSsemana.setText(String.valueOf(semanas));
-
-                        encontrado = true;
-                        break;
-                    }
-                }
-            }
-
-            if (!encontrado) {
-                System.out.println("Usuario no encontrado en el archivo.");
-            }
-
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
-        }
+        int[] tiempos = MostrarDutsTiempo.mostrarDutsTiempo(usuarioIngresado); // el arreglo de enteros recibido, se guarda en otro arreglo de enteros local [0,1,2,3]
+        
+        ContadorDUTSaño.setText(String.valueOf(tiempos[0]));
+        ContadorDUTSsemestre.setText(String.valueOf(tiempos[1]));
+        ContadorDUTSmes.setText(String.valueOf(tiempos[2]));
+        ContadorDUTSsemana.setText(String.valueOf(tiempos[3]));
     }
+
 
     PantallaMiPerfil() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -63,7 +34,7 @@ public class PantallaMiPerfil extends javax.swing.JFrame {
         botonSalir = new javax.swing.JButton();
         FondoFotoPerfil1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        BotonEnviarDUTS = new javax.swing.JButton();
+        BotonCambiarFoto = new javax.swing.JButton();
         FondoFotoPerfil2 = new javax.swing.JPanel();
         EtiquetaDutsActuales = new javax.swing.JLabel();
         ContadorDUTSaño = new javax.swing.JLabel();
@@ -105,15 +76,15 @@ public class PantallaMiPerfil extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pantallas/persona icono.png"))); // NOI18N
 
-        BotonEnviarDUTS.setBackground(new java.awt.Color(60, 61, 55));
-        BotonEnviarDUTS.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BotonEnviarDUTS.setForeground(new java.awt.Color(255, 255, 255));
-        BotonEnviarDUTS.setText("Cambiar Foto");
-        BotonEnviarDUTS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BotonEnviarDUTS.setPreferredSize(new java.awt.Dimension(100, 100));
-        BotonEnviarDUTS.addActionListener(new java.awt.event.ActionListener() {
+        BotonCambiarFoto.setBackground(new java.awt.Color(60, 61, 55));
+        BotonCambiarFoto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BotonCambiarFoto.setForeground(new java.awt.Color(255, 255, 255));
+        BotonCambiarFoto.setText("Cambiar Foto");
+        BotonCambiarFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotonCambiarFoto.setPreferredSize(new java.awt.Dimension(100, 100));
+        BotonCambiarFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonEnviarDUTSActionPerformed(evt);
+                BotonCambiarFotoActionPerformed(evt);
             }
         });
 
@@ -123,7 +94,7 @@ public class PantallaMiPerfil extends javax.swing.JFrame {
             FondoFotoPerfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoFotoPerfil1Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(BotonEnviarDUTS, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonCambiarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(69, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoFotoPerfil1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,7 +107,7 @@ public class PantallaMiPerfil extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonEnviarDUTS, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonCambiarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -346,13 +317,13 @@ public class PantallaMiPerfil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_botonSalirActionPerformed
 
-    private void BotonEnviarDUTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEnviarDUTSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonEnviarDUTSActionPerformed
+    private void BotonCambiarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambiarFotoActionPerformed
+        JOptionPane.showMessageDialog(this, "Funcionalidad para cambiar la foto aún no implementada.");
+    }//GEN-LAST:event_BotonCambiarFotoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonEnviarDUTS;
+    private javax.swing.JButton BotonCambiarFoto;
     private javax.swing.JLabel ContadorDUTSaño;
     private javax.swing.JLabel ContadorDUTSmes;
     private javax.swing.JLabel ContadorDUTSsemana;

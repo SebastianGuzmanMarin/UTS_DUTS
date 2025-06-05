@@ -1,2 +1,3 @@
-Sebas,26655
-Andres,13345
+Sebas,44310
+Andres,56690
+Angelica,19000

@@ -2,7 +2,7 @@ package Pantallas;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 public class PantallaIngreso extends javax.swing.JFrame {
@@ -37,7 +37,6 @@ public class PantallaIngreso extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 700));
         setMinimumSize(new java.awt.Dimension(800, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 700));
@@ -213,12 +212,12 @@ public class PantallaIngreso extends javax.swing.JFrame {
 
         boolean accesoConcedido = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("usuariosRegistrados.txt"))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(",");
+        try (BufferedReader br = new BufferedReader(new FileReader("usuariosRegistrados.txt"))) { //BR lee linea por linea
+            String lineaLeida;
+            while ((lineaLeida = br.readLine()) != null) { // el ciclo finaliza cuando no hay mas lineas por leer o = null
+                String[] partes = lineaLeida.split(","); //divide la linea usando la coma "," como separador //String[] arrlego de strings
                 if (partes.length >= 2) {
-                    String usuarioArchivo = partes[0].trim();
+                    String usuarioArchivo = partes[0].trim(); //trim elimina los espacion en blanco
                     String contraseñaArchivo = partes[1].trim();
 
                     if (usuarioIngresado.equals(usuarioArchivo) && contraseñaIngresada.equals(contraseñaArchivo)) {
@@ -227,13 +226,13 @@ public class PantallaIngreso extends javax.swing.JFrame {
                     }
                 }
             }
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al leer el archivo " + e.getMessage());
             return;
         }
 
         if (accesoConcedido) {
-            PantallaMenuInicial pmi = new PantallaMenuInicial(usuarioIngresado);// se pasa usuarioIngresado como parametro 
+            PantallaMenuInicial pmi = new PantallaMenuInicial(usuarioIngresado);// se pasa usuarioIngresado como parametro a la siguente pantalla
             pmi.setVisible(true);
             this.setVisible(false);
         } else {

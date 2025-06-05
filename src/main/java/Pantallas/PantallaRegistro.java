@@ -1,6 +1,6 @@
 package Pantallas;
 
-import static Pantallas.ValidacionUsuarioExiste.validacionUsuarioExiste;
+import static Modelos.ValidacionUsuarioExiste.validacionUsuarioExiste;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,7 +29,6 @@ public class PantallaRegistro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 700));
         setMinimumSize(new java.awt.Dimension(800, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 700));
@@ -181,7 +180,7 @@ public class PantallaRegistro extends javax.swing.JFrame {
 
         FondoPantalla.add(FondoCuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 700));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pantallas/Fachada-UTS (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Screens/Fachada-UTS (1).png"))); // NOI18N
         jLabel2.setText("jLabel2");
         FondoPantalla.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 430, 680));
 
